@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import path from "path"
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,5 +10,9 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  server: {
+    host: "0.0.0.0", // Expose to all interfaces
+    port: 8080, // Ensure it's using port 8080 (or any other port you want)
   },
 });
