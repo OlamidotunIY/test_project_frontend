@@ -11,6 +11,7 @@ interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 export const BioField = ({ bio, ...props }: Props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  console.log(props);
   return (
     <div className="grid gap-2 bg-sky-100 rounded-md p-3">
       <div className="flex w-full justify-between">

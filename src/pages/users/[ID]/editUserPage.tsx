@@ -79,6 +79,8 @@ const EditUserPage = () => {
                   />
                   <NameField
                     {...formik.getFieldProps("name")}
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
                     name={data?.user?.name as string}
                   />
                   <BioField
