@@ -7,9 +7,10 @@ import React, { useState } from "react";
 
 interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   bio: string;
+  updateUserLoading: boolean;
 }
 
-export const BioField = ({ bio, ...props }: Props) => {
+export const BioField = ({ bio, updateUserLoading, ...props }: Props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   console.log(props);
   return (
@@ -38,7 +39,7 @@ export const BioField = ({ bio, ...props }: Props) => {
           )}
       </div>
       {isEditing && (
-        <Button className="w-1/3 justify-self-end" type="submit">
+        <Button className="w-1/3 justify-self-end" type="submit" disabled={updateUserLoading}>
           Save
         </Button>
       )}

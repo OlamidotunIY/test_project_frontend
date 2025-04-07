@@ -7,9 +7,10 @@ import React, { useState } from "react";
 
 interface props extends FieldInputProps<string> {
   name: string;
+  updateUserLoading: boolean;
 }
 
-export const NameField = ({ name, ...props }: props) => {
+export const NameField = ({ name, updateUserLoading, ...props }: props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 console.log(props)
   return (
@@ -42,7 +43,7 @@ console.log(props)
         )}
       </div>
       {isEditing && (
-        <Button className="w-1/3 justify-self-end" type="submit">
+        <Button className="w-1/3 justify-self-end" type="submit" disabled={updateUserLoading}>
           Save
         </Button>
       )}

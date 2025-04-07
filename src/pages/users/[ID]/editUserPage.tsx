@@ -8,8 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useParams } from "react-router";
 import { useFormik } from "formik";
 import { toast } from "sonner";
@@ -55,7 +53,7 @@ const EditUserPage = () => {
       await mutate({
         variables: {
           name: values.name,
-          bio: values.bio
+          bio: values.bio,
         },
       });
     },
@@ -74,19 +72,16 @@ const EditUserPage = () => {
             <CardContent>
               <form onSubmit={formik.handleSubmit}>
                 <div className="flex flex-col gap-6">
-                  <EmailField
-                    email={data?.user.email as string}
-                  />
+                  <EmailField email={data?.user.email as string} />
                   <NameField
                     {...formik.getFieldProps("name")}
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    name={data?.user?.name as string}
+                    updateUserLoading={updateUserLoading}
                   />
                   <BioField
                     bio={data?.user.bio as string}
                     {...formik.getFieldProps("bio")}
                     className="resize-none outline-none"
+                    updateUserLoading={updateUserLoading}
                   />
                 </div>
               </form>
