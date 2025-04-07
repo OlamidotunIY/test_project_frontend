@@ -76,6 +76,7 @@ const EditUserPage = () => {
                   <NameField
                     {...formik.getFieldProps("name")}
                     updateUserLoading={updateUserLoading}
+                    data={data?.user.name as string}
                   />
                   <BioField
                     bio={data?.user.bio as string}

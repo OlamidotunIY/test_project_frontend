@@ -6,11 +6,11 @@ import { Pencil, XCircle } from "lucide-react";
 import React, { useState } from "react";
 
 interface props extends FieldInputProps<string> {
-  name: string;
+  data: string;
   updateUserLoading: boolean;
 }
 
-export const NameField = ({ name, updateUserLoading, ...props }: props) => {
+export const NameField = ({ data, updateUserLoading, ...props }: props) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 console.log(props)
   return (
@@ -34,10 +34,9 @@ console.log(props)
           <Input
             {...props}
             placeholder="john Deo"
-            name="name"
           />
-        ) : name ? (
-          <span className="text-sm">{name}</span>
+        ) : data ? (
+          <span className="text-sm">{data}</span>
         ) : (
           <span className="italic text-sm text-muted-foreground">No name</span>
         )}
